@@ -351,7 +351,7 @@ class BaseModel():
     proj_color = self.project_color(proj_vert, eros_image)
     visiable = tf.cast(normal_rot[..., 2:3] > 0, tf.float32) * proj_color[..., 3:4]
     proj_color = tf.concat([proj_color[..., :3] * visiable, visiable], axis=-1)
-    # TODO: 
+    # TODO:
     # refine_input = pca_texture
     # refine_input = tf.concat([pca_texture, proj_color[..., :3]], axis=-1)
     refine_input = tf.concat([pca_texture, proj_color], axis=-1)
